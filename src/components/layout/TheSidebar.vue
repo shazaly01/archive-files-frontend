@@ -92,6 +92,7 @@ import {
   XMarkIcon,
   ChevronDownIcon,
   BuildingOfficeIcon, // للأقسام
+  CloudArrowUpIcon,
 } from '@heroicons/vue/24/outline'
 
 defineEmits(['close-sidebar'])
@@ -130,6 +131,7 @@ const allNavLinks = shallowRef([
       { name: 'الأقسام', routeName: 'DepartmentsList', permission: 'department.view' },
       { name: 'المستخدمين', routeName: 'UsersList', permission: 'user.view' },
       { name: 'الصلاحيات', routeName: 'RolesList', permission: 'role.view' },
+      { name: 'النسخ الاحتياطي', routeName: 'BackupsList', permission: 'backup.view' },
     ],
   },
 ])

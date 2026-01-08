@@ -45,12 +45,15 @@ const searchQuery = ref('')
 // تعريف أعمدة الجدول (يتم تمريرها للمكون الفرعي)
 const headers = [
   { key: 'title', label: 'اسم الملف', class: 'text-right min-w-[200px]' },
+
+  // [جديد] عمود من قام بالرفع
+  { key: 'uploader', label: 'بواسطة', class: 'text-right' },
+
   { key: 'version', label: 'الإصدار', class: 'text-center' },
   { key: 'size', label: 'الحجم', class: 'text-left font-mono' },
   { key: 'status', label: 'الحالة', class: 'text-center' },
   { key: 'actions', label: '', class: 'text-left w-32' },
 ]
-
 // --- المنطق البرمجي (Logic) ---
 
 // تصفية الملفات بناءً على البحث

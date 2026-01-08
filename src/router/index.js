@@ -113,6 +113,13 @@ const routes = [
         meta: { permission: 'role.view' },
       },
 
+      {
+        path: 'settings/backups',
+        name: 'BackupsList',
+        component: () => import('@/views/settings/BackupsList.vue'),
+        meta: { permission: 'backup.view' },
+      },
+
       // إعادة التوجيه الافتراضية
       { path: '', redirect: '/app/dashboard' },
     ],

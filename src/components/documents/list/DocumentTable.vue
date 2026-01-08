@@ -21,6 +21,33 @@
       </div>
     </template>
 
+    <template #cell-uploader="{ item }">
+      <div class="flex items-center gap-2">
+        <div
+          class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0"
+        >
+          {{
+            getInitials(
+              item.latest_version?.creator?.full_name || item.latest_version?.creator?.username,
+            )
+          }}
+        </div>
+
+        <div class="min-w-0">
+          <p class="text-sm font-medium text-text-primary truncate">
+            {{
+              item.latest_version?.creator?.full_name ||
+              item.latest_version?.creator?.username ||
+              'غير معروف'
+            }}
+          </p>
+          <p class="text-xs text-text-muted truncate">
+            {{ item.latest_version?.creator?.department?.name || 'بدون قسم' }}
+          </p>
+        </div>
+      </div>
+    </template>
+
     <template #cell-version="{ item }">
       <span
         class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300"
@@ -47,7 +74,8 @@
           <div
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none z-10"
           >
-            بواسطة: {{ item.locked_by_user?.name || 'مستخدم آخر' }}
+            بواسطة:
+            {{ item.locked_by_user?.full_name || item.locked_by_user?.username || 'مستخدم آخر' }}
           </div>
         </div>
       </div>
@@ -73,7 +101,6 @@ import { useAuthStore } from '@/stores/authStore'
 import AppTable from '@/components/ui/AppTable.vue'
 import DocumentActions from './DocumentActions.vue'
 
-// استيراد الأيقونات
 import {
   DocumentIcon,
   PhotoIcon,
@@ -84,25 +111,15 @@ import {
 } from '@heroicons/vue/24/outline'
 
 const props = defineProps({
-  headers: {
-    type: Array,
-    required: true,
-  },
-  items: {
-    type: Array,
-    required: true,
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
+  headers: { type: Array, required: true },
+  items: { type: Array, required: true },
+  isLoading: { type: Boolean, default: false },
 })
 
 const emit = defineEmits(['preview', 'toggle-lock', 'delete'])
-
 const authStore = useAuthStore()
 
-// --- دوال مساعدة للعرض ---
+// --- Helpers ---
 
 function formatSize(bytes) {
   if (!bytes) return '0 B'
@@ -123,5 +140,10 @@ function getFileIcon(mimeType) {
 
 function isLockedByMe(item) {
   return item.locked_by === authStore.user?.id
+}
+
+function getInitials(name) {
+  if (!name) return '?'
+  return name.charAt(0).toUpperCase()
 }
 </script>
