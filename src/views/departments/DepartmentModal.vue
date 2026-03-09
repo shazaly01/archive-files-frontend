@@ -37,7 +37,7 @@ const store = useDepartmentStore()
 
 // عنوان النافذة يتغير ديناميكياً
 const dialogTitle = computed(() => {
-  return props.itemToEdit ? 'تعديل بيانات القسم' : 'إضافة قسم جديد'
+  return props.itemToEdit ? 'تعديل بيانات ادارة' : 'إضافة ادارة جديدة'
 })
 
 // تصفية قائمة الآباء

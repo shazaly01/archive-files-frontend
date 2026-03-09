@@ -4,13 +4,13 @@
       <div>
         <h1 class="text-2xl font-bold text-gray-900 dark:text-white">إدارة الأقسام</h1>
         <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
-          عرض وإدارة الهيكل التنظيمي للأقسام
+          عرض وإدارة الهيكل التنظيمي للادارات
         </p>
       </div>
       <AppButton variant="primary" @click="openCreateModal">
         <span class="flex items-center gap-2">
           <span>+</span>
-          <span>إضافة قسم جديد</span>
+          <span>إضافة ادارة جديدة</span>
         </span>
       </AppButton>
     </div>
@@ -28,7 +28,7 @@
         >
           {{ item.parent.name }}
         </span>
-        <span v-else class="text-gray-400 text-xs">- قسم رئيسي -</span>
+        <span v-else class="text-gray-400 text-xs">- ادارة رئيسية -</span>
       </template>
 
       <template #cell-children_count="{ item }">
@@ -97,9 +97,9 @@ const selectedItem = ref(null)
 // تعريف أعمدة الجدول
 const headers = [
   { key: 'id', label: '#' },
-  { key: 'name', label: 'اسم القسم', class: 'font-bold' },
-  { key: 'parent', label: 'القسم الرئيسي' },
-  { key: 'children_count', label: 'الأقسام الفرعية', class: 'text-center' },
+  { key: 'name', label: 'اسم الادارة', class: 'font-bold' },
+  { key: 'parent', label: 'الادارة الرئيسية' },
+  { key: 'children_count', label: 'الادارات الفرعية', class: 'text-center' },
   { key: 'created_at', label: 'تاريخ الإنشاء' },
   { key: 'actions', label: '', class: 'text-left' }, // عمود الإجراءات
 ]
@@ -125,7 +125,7 @@ function openEditModal(item) {
 // دالة الحذف
 async function confirmDelete(item) {
   // استخدام نافذة المتصفح الافتراضية للحذر (لأنني لا أملك كود AppConfirmDialog)
-  if (confirm(`هل أنت متأكد من رغبتك في حذف قسم "${item.name}"؟`)) {
+  if (confirm(`هل أنت متأكد من رغبتك في حذف الادارة "${item.name}"؟`)) {
     try {
       await store.deleteDepartment(item.id)
       // يمكن إضافة رسالة نجاح هنا

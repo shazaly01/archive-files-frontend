@@ -59,13 +59,13 @@
                 @click="handleArchiveProject"
                 class="w-full text-right px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-surface-ground flex gap-2"
               >
-                <ArchiveBoxIcon class="w-4 h-4 text-orange-500" /> أرشفة المشروع
+                <ArchiveBoxIcon class="w-4 h-4 text-orange-500" /> أرشفة القسم
               </button>
               <button
                 @click="handleDeleteProject"
                 class="w-full text-right px-4 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex gap-2 border-t dark:border-gray-700"
               >
-                <TrashIcon class="w-4 h-4" /> حذف المشروع
+                <TrashIcon class="w-4 h-4" /> حذف القسم
               </button>
             </div>
             <div
@@ -90,11 +90,11 @@
         <aside class="lg:col-span-1 space-y-6">
           <div class="bg-surface-section border border-surface-border rounded-xl p-5 shadow-sm">
             <h3 class="font-bold text-text-primary mb-4 border-b border-surface-border pb-2">
-              حول المشروع
+              حول القسم
             </h3>
 
             <p class="text-sm text-text-secondary leading-relaxed mb-6">
-              {{ project.description || 'لا يوجد وصف متاح لهذا المشروع.' }}
+              {{ project.description || 'لا يوجد وصف متاح لهذا القسم.' }}
             </p>
 
             <div class="space-y-4">
@@ -119,7 +119,7 @@
               <div v-if="project.creator" class="flex items-start gap-3">
                 <UserCircleIcon class="w-5 h-5 text-text-muted mt-0.5" />
                 <div>
-                  <p class="text-xs text-text-muted">مدير المشروع</p>
+                  <p class="text-xs text-text-muted">مدير القسم</p>
                   <div class="flex items-center gap-2 mt-1">
                     <div
                       class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-xs text-primary font-bold"
@@ -162,7 +162,7 @@
                       class="w-2 h-2 rounded-full"
                       :class="member.pivot?.role === 'manager' ? 'bg-purple-500' : 'bg-blue-500'"
                     ></span>
-                    {{ member.pivot?.role === 'manager' ? 'مدير المشروع' : 'عضو فريق' }}
+                    {{ member.pivot?.role === 'manager' ? 'مدير القسم' : 'عضو فريق' }}
                   </p>
                 </div>
               </div>
@@ -215,7 +215,7 @@
             <DocumentList v-if="project.id" :project-id="project.id" @preview="openPreview" />
           </div>
 
-          <div v-else class="text-center py-12 text-text-muted">قريباً: سجل نشاطات المشروع</div>
+          <div v-else class="text-center py-12 text-text-muted">قريباً: سجل نشاطات القسم</div>
         </div>
       </div>
     </main>
@@ -347,14 +347,14 @@ function openEditModal() {
 
 async function handleArchiveProject() {
   showSettingsMenu.value = false
-  if (!confirm('هل أنت متأكد من تغيير حالة أرشفة هذا المشروع؟')) return
+  if (!confirm('هل أنت متأكد من تغيير حالة أرشفة هذا القسم')) return
   await projectStore.archiveProject(project.value.id)
   refreshProjectData()
 }
 
 async function handleDeleteProject() {
   showSettingsMenu.value = false
-  if (!confirm('تحذير: هل أنت متأكد من حذف المشروع نهائياً؟')) return
+  if (!confirm('تحذير: هل أنت متأكد من حذف القسم نهائياً؟')) return
   await projectStore.deleteProject(project.value.id)
   router.push({ name: 'ProjectsList' })
 }

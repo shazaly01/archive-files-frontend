@@ -2,20 +2,20 @@
   <form @submit.prevent="handleSubmit" class="space-y-4">
     <AppInput
       id="dept-name"
-      label="اسم القسم"
+      label="اسم الادارة"
       v-model="form.name"
-      placeholder="أدخل اسم القسم (مثلاً: الموارد البشرية)"
+      placeholder="أدخل اسم الادارة (مثلاً: الموارد البشرية)"
       :required="true"
     />
 
     <AppDropdown
       id="dept-parent"
-      label="القسم الرئيسي (اختياري)"
+      label="الادارة الرئيسية (اختياري)"
       v-model="form.parent_id"
       :options="parentOptions"
       optionLabel="name"
       optionValue="id"
-      placeholder="بدون قسم رئيسي (قسم جذري)"
+      placeholder="بدون ادارة رئيسية (قسم جذري)"
       :showClear="true"
     />
 

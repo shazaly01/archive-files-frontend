@@ -32,7 +32,7 @@
               :value="searchQuery"
               @input="$emit('update:searchQuery', $event.target.value)"
               type="text"
-              placeholder="اسم المشروع أو الشركة..."
+              placeholder="اسم قسم الارشيف أو الشركة..."
               class="block w-full pl-10 pr-4 py-2 border border-surface-border rounded-lg bg-surface-ground text-text-primary focus:ring-2 focus:ring-primary outline-none transition-all sm:text-sm"
             />
           </div>

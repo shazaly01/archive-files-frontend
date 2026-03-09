@@ -32,7 +32,7 @@ const store = useProjectStore()
 const authStore = useAuthStore() // 2. تهيئة الستور
 
 const dialogTitle = computed(() => {
-  return props.itemToEdit ? 'تعديل بيانات المشروع' : 'إنشاء مشروع جديد'
+  return props.itemToEdit ? 'تعديل بيانات قسم الارشيف' : 'إنشاء قسم ارشيف جديد'
 })
 
 function closeModal() {

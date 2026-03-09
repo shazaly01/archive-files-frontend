@@ -109,26 +109,26 @@ const allNavLinks = shallowRef([
     permission: 'dashboard.view',
   },
   {
-    name: 'المشاريع والملفات',
+    name: 'الارشفة والاقسام',
     routeName: 'ProjectsList',
     icon: FolderIcon,
     // [تعديل] نستخدم dashboard.view لأن كل من يدخل النظام يجب أن يرى المشاريع
     // أو يمكن استخدام مصفوفة إذا كان الستور يدعمها: ['project.view.all', 'project.view.public']
     permission: 'dashboard.view',
   },
-  {
-    name: 'مركز الاعتمادات',
-    routeName: 'ApprovalsCenter',
-    icon: CheckBadgeIcon,
-    // [تعديل] نستخدم dashboard.view أو approval.view (الموجودة عند الجميع)
-    permission: 'approval.view',
-  },
+  // {
+  //   name: 'مركز الاعتمادات',
+  //   routeName: 'ApprovalsCenter',
+  //   icon: CheckBadgeIcon,
+  //   // [تعديل] نستخدم dashboard.view أو approval.view (الموجودة عند الجميع)
+  //   permission: 'approval.view',
+  // },
   {
     name: 'إعدادات النظام',
     icon: Cog6ToothIcon,
     permission: 'user.view', // صلاحية المجموعة (تظهر إذا كان لديه صلاحية مستخدمين)
     children: [
-      { name: 'الأقسام', routeName: 'DepartmentsList', permission: 'department.view' },
+      { name: 'الادارات', routeName: 'DepartmentsList', permission: 'department.view' },
       { name: 'المستخدمين', routeName: 'UsersList', permission: 'user.view' },
       { name: 'الصلاحيات', routeName: 'RolesList', permission: 'role.view' },
       { name: 'النسخ الاحتياطي', routeName: 'BackupsList', permission: 'backup.view' },

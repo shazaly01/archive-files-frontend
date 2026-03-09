@@ -65,7 +65,7 @@
             v-if="authStore.can('project.update')"
             @click.stop="$emit('edit-project', item)"
             class="p-1 font-medium text-sky-500 hover:text-sky-400 transition-colors"
-            title="تعديل المشروع"
+            title="تعديل قسم"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path
@@ -79,7 +79,7 @@
             v-if="authStore.can('project.delete')"
             @click.stop="$emit('delete-project', item)"
             class="p-1 font-medium text-rose-500 hover:text-rose-400 transition-colors"
-            title="حذف المشروع"
+            title="حذف قسم"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path
@@ -131,7 +131,7 @@ const authStore = useAuthStore()
 const tableHeaders = computed(() => {
   const headers = [
     { key: 'id', label: '#' },
-    { key: 'name', label: 'اسم المشروع' },
+    { key: 'name', label: 'اسم القسم' },
     { key: 'project_owner', label: 'الجهة المالكة' },
     { key: 'company', label: 'الشركة' },
     { key: 'contract_value', label: 'قيمة العقد' },

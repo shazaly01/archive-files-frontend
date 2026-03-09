@@ -2,17 +2,17 @@
   <form @submit.prevent="handleSubmit" class="space-y-4">
     <AppInput
       id="project-title"
-      label="اسم المشروع"
+      label="اسم قسم الارشيف"
       v-model="form.title"
-      placeholder="مثلاً: مشروع الميزانية السنوية"
+      placeholder="مثلاً: قسم الميزانية السنوية"
       :required="true"
     />
 
     <AppTextarea
       id="project-description"
-      label="وصف المشروع"
+      label="وصف القسم"
       v-model="form.description"
-      placeholder="اكتب نبذة مختصرة عن أهداف هذا المشروع..."
+      placeholder="اكتب نبذة مختصرة عن أهداف هذا القسم..."
       rows="3"
     />
 
@@ -23,7 +23,7 @@
       :options="scopeOptions"
       optionLabel="label"
       optionValue="value"
-      placeholder="اختر من يشاهد هذا المشروع"
+      placeholder="اختر من يشاهد هذا القسم"
       :required="true"
     />
 
@@ -56,7 +56,7 @@
 
       <AppButton type="submit" variant="primary" :disabled="isLoading">
         <span v-if="isLoading">جارٍ الحفظ...</span>
-        <span v-else>حفظ المشروع</span>
+        <span v-else>حفظ القسم</span>
       </AppButton>
     </div>
   </form>
